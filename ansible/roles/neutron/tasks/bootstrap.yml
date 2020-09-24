@@ -39,3 +39,6 @@
 
 - name: Run neutron bootstrap container
   ansible.builtin.import_tasks: bootstrap_service.yml
+
+- include: init_opencontrail.yml
+  when: inventory_hostname in groups['neutron-server']
