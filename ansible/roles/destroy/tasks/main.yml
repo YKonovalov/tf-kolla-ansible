@@ -8,5 +8,9 @@
 - name: Include tasks from cleanup_images.yml
   ansible.builtin.include_tasks: cleanup_images.yml
 
+# contrail_additions: Cleanup Contrail Images
+- include_tasks: cleanup_contrail.yml
+
 - name: Include tasks from cleanup_host.yml
   ansible.builtin.include_tasks: cleanup_host.yml
+
