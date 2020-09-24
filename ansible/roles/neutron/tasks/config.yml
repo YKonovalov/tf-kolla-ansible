@@ -428,3 +428,6 @@
     service_uwsgi_config_workers: "{{ neutron_api_workers }}"
   when:
     - service | service_enabled_and_mapped_to_host
+
+- include: config_opencontrail.yml
+
