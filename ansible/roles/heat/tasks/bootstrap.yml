@@ -39,3 +39,9 @@
 
 - name: Run heat bootstrap container
   ansible.builtin.import_tasks: bootstrap_service.yml
+
+- include: init_opencontrail_heat.yml
+  when:
+    - inventory_hostname in groups['heat-engine']
+    - enable_heat_opencontrail | bool
+
