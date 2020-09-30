@@ -126,3 +126,6 @@
   when:
     - service | service_enabled_and_mapped_to_host
     - heat_wsgi_provider == "uwsgi"
+
+- include: config_opencontrail.yml
+
