@@ -1,2 +1,3 @@
 ---
-- include_tasks: ironic_notification_manager.yml
+- include_tasks:
+    file: ironic_notification_manager.yml
