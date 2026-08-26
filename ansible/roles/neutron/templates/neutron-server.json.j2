@@ -7,12 +7,6 @@
             "owner": "neutron",
             "perm": "0600"
         },
-        {
-            "source": "{{ container_config_directory }}/contrail-plugin.pth",
-            "dest": "/usr/lib/python{{ distro_python_version }}/site-packages/contrail-plugin.pth",
-            "owner": "root",
-            "perm": "0644"
-        },
 {% if enable_neutron_vpnaas | bool %}
         {
             "source": "{{ container_config_directory }}/neutron_vpnaas.conf",
@@ -61,6 +55,12 @@
             "owner": "neutron",
             "perm": "0600"
         }{% if neutron_plugin_agent in ['opencontrail'] -%},
+        {
+            "source": "{{ container_config_directory }}/contrail-plugin.pth",
+            "dest": "/var/lib/kolla/venv/lib/python{{ distro_python_version }}/site-packages/contrail-plugin.pth",
+            "owner": "root",
+            "perm": "0644"
+        },
         {
             "source": "{{ container_config_directory }}/ContrailPlugin.ini",
             "dest": "/etc/neutron/plugins/opencontrail/ContrailPlugin.ini",
