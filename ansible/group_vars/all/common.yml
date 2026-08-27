@@ -65,7 +65,7 @@ opencontrail_webui_ip: "{{ contrail_api_interface_address }}"
 opencontrail_webui_port: "8143"
 
 # These option controls the "insecure" option under the 
-# [APISERVER] section of ContrailPlugin.ini
+# [APISERVER] section of neutron.conf
 opencontrail_api_insecure: "no"
 opencontrail_api_use_vip: "no"
 
