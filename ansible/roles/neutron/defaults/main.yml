@@ -33,7 +33,7 @@ neutron_services:
   neutron-rpc-server:
     container_name: "neutron_rpc_server"
     image: "{{ neutron_rpc_server_image_full }}"
-    enabled: true
+    enabled: "{{ neutron_plugin_agent not in ['opencontrail'] }}"
     group: "neutron-rpc-server"
     host_in_groups: "{{ inventory_hostname in groups['neutron-rpc-server'] }}"
     volumes: "{{ neutron_rpc_server_default_volumes + neutron_rpc_server_extra_volumes }}"
@@ -42,7 +42,7 @@ neutron_services:
   neutron-periodic-worker:
     container_name: "neutron_periodic_worker"
     image: "{{ neutron_periodic_worker_image_full }}"
-    enabled: true
+    enabled: "{{ neutron_plugin_agent not in ['opencontrail'] }}"
     group: "neutron-periodic-worker"
     host_in_groups: "{{ inventory_hostname in groups['neutron-periodic-worker'] }}"
     volumes: "{{ neutron_periodic_worker_default_volumes + neutron_periodic_worker_extra_volumes }}"
